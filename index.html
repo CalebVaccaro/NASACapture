@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NASA Capture</title>
+    
+    <!-- Load required Bootstrap and BootstrapVue CSS -->
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+
+<!-- Load polyfills to support older browsers -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+
+<!-- Load Vue followed by BootstrapVue -->
+<script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
+<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
+    <!-- https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- include VueJS first -->
+<script src="https://unpkg.com/vue@latest"></script>
+
+<!-- use the latest vue-select release -->
+<script src="https://unpkg.com/vue-select@latest"></script>
+<link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+
+<!-- or point to a specific vue-select release -->
+<script src="https://unpkg.com/vue-select@3.0.0"></script>
+<link rel="stylesheet" href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css">
+
+
+<link type="text/css" rel="stylesheet" href="style/styleTest.css"/>
+</head>
+<body>
+    <div id="app">
+        <div id="column" style="width: 55%; margin-bottom: 1%; ">
+            <section id="title" style="margin-bottom: 5%; margin-top: 5%;">
+                <h1><img id="nasalogo" style="height: 42px; width: 50px;" src="style/media/nasa.png">   NASA Capture  </h1>
+                <h2 style="margin-left: 7%;">What have you observerd today?</h2>
+            </section>
+            <h1>Incoming Data</h1>
+            <div id="manipulators">
+                
+                <section id="manipulator" style="display: flex; margin-bottom: 1%;">
+                    <section id="apod" style=" margin-right: 2%;">
+                        <h2> Astronomy Picture of the Day</h2>
+                        <div id="data controls">
+                            <button v-on:click="decrementAPOD">Previous APOD</button>
+                            <button v-on:click="presentAPOD">Present</button>
+                            <button v-on:click="incrementAPOD">Next APOD</button>
+                        </div>
+                        <div style="margin:5%;" id="data controls">
+                            Month: <input type="search" v-model="month"  size="5"> <br>
+                            Day:  <input type="search" v-model="day"  size="5"> <br>
+                            Year:  <input style="margin-bottom: 3%;" type="search" v-model="year"  size="5"> <br>
+                            <button style="margin-left: 15%;" v-on:click="searchAPOD">Search for Picture</button>
+                            </div>
+                            <apodvue v-bind:url="apod.hdurl"></apodvue>
+                </section>
+                <section id="hubble" style=" text-align: center;">
+                    <h2>Hubble Space Telescope </h2>
+                          <div id="data controls" style="margin-bottom: 3%;">
+                              <button v-on:click="previousHubble">Previous Hubble Capture</button>
+                              <button v-on:click="nextHubble">Next Hubble Capture</button>
+                              <button v-on:click="randomizeHubble">Randomize</button>
+                              <h2 style="margin-top: 2%;">Picture Search (Enter Number): </h2> <input size="5" type="search" v-model="hubblepicture"> <button v-on:click="searchHubble">Search for Picture</button>
+                          </div>
+                          <hubblevue v-bind:url="hubble.image_files[3].file_url"></hubblevue>
+                  </section>
+            </section>
+            
+                </section>
+                <section id="manipulator" style="display: flex; justify-content: center;">
+                    <section id="epic">
+                        <h2>DSCOVR's Earth Polychromatic Imaging Camera (EPIC) </h2>
+                        <div id="data controls" style="margin-bottom: 3%;">
+                            <button v-on:click="decrementEPIC">Previous EPIC Position</button>
+                            <button v-on:click="incrementEPIC">Next EPIC Position</button>
+                        </div>
+                        <epicvue v-bind:epics="epic" v-bind:incrementor="incrementor"></epicvue>
+                    
+                </section>
+            </div>
+            
+            
+
+        </div>
+        <div id="column" style="width: 40%; margin-left: 5%;">
+
+            <!-- <div id="DataSets" style="margin-bottom: 10%; margin-top: 5%;">
+                <h1>DataSets</h1>
+                <div id="data_controls">
+                        <button v-on:click="previousdayDatasset">Previous Day</button>
+                        <button v-on:click="previousDataset">Previous Dataset</button>
+                        <button>Present</button>
+                        <button v-on:click="nextDataset">Next Dataset</button>
+                        <button v-on:click="nextdayDataset">Next Day</button>
+                    </div>
+                  <datasettable v-bind:dataset="dataset" v-bind:datasetday="datasetday" v-bind:datastate="datastate"></datasettable>
+                -->
+            <div id="NoteSets">
+                <h2 style="margin-bottom: 5%; color: white;">{{question}}</h2>
+                <h1>Notes</h1>
+                        <div id="data_controls" style="margin-bottom: .5%; ">
+                                
+                                <!-- <daynotesets v-bind:data="noteset"></daynotesets> -->
+                                <div style="display: flex; margin-bottom: 1%;">
+                                    <div style="margin-right: 2%;">
+                                        <v-select class="date" @input="dropdownDate" v-model="dateselected" :options="noteset" label="date"/>
+                                            
+                                        </div>
+                                        <div>
+                                        <v-select @input="closeModal" v-model="noteselected" :options="noteset[daynotes].obj" label="title"  />
+                                            
+                                        </div>
+                                </div>
+                                <button v-on:click="previousdayNoteset">Previous Day</button>
+                                <button v-on:click="previousNoteset">Previous NoteSet</button>
+                                <button v-on:click="presentDate">Present</button>
+                                <button v-on:click="nextNoteset" >Next NoteSet</button>
+                                <button  v-on:click="nextdayNoteset">Next Day</button >
+                                
+                                <!-- <notesetsdropdown v-bind:noteset="noteset" v-bind:notestate="notestate" v-bind:daynotes="daynotes" v-bind:noteselected="noteselected"></notesetsdropdown> -->
+                            </div>
+                            <!-- <notetextarea v-bind:noteset="noteset" v-bind:notestate="notestate" v-bind:daynotes="daynotes" ></notetextarea> -->
+                            <textarea v-model="noteset[daynotes].obj[notestate].notes" id="textarea" rows="6" cols="60"></textarea>
+
+                            <div id="data_controls" >
+                                <button style="margin-top:1%;" v-on:click="addNoteset">Add NoteSet</button>
+                                <button style="margin-top:1%;" v-on:click="saveData">Save Data</button>
+                            </div>
+                    </div>
+                    <button id="documentation" onclick="window.location.href='documentation.html';">
+                        <p style="text-align: center;" ><a href="documentation.html">Documentation</a> </p>
+                    </button>
+            </div>
+            <div id="column" style="width: 5%; ">
+                <div id="misc_controls" style="display: block; text-align: center;">
+                    <button id="bk"  v-on:click="decrementBackgroundImg">Previous Background</button>
+                    <!-- <button>Previous Questions</button>
+                    <button>MovingQuestions</button> -->
+                    <!-- <button>Next Questions</button> -->
+                    <button id="bk" v-on:click="incrementBackgroundImg">Next Background</button>
+                </div>
+                
+            </div>
+            
+            
+            <modal v-if="showModal" @close="closeSets">
+                <h3 slot="header" v-bind:modalheader="modalheader">{{modalheader}}</h3>
+                <!--
+                  you can use custom content here to overwrite
+                  default content
+                -->
+                <div slot="body" v-if="!ifLoggedIn">
+                    Username:<input style=" margin-bottom: 3%;" v-bind:username="username"
+                    v-on:input="username = $event.target.value"type='text'><br>
+                    Password: <input v-bind:password="password" 
+                    v-on:input="password = $event.target.value" type="password"><br>
+
+                    <p id="accR">Account Required</p>
+                </div>
+
+                <div slot="body" v-if="ifAddNoteset">
+                    <h2>Title:</h2>
+                    <input style="margin-bottom:3%;" v-model="newNoteSetTitle" type='text' value='Title'>
+                    <h2>Notes:</h2>
+                    <textarea v-model="newNoteSet" name="newNotes" id="" cols="30" rows="5"></textarea>
+                </div>
+
+
+                <div slot="body" v-if="ifAddDataset">
+                    <input type='text' value='Data Title'><br>
+                    <input type='text' value='Rows'><br>
+                </div>
+
+
+                <div slot="body" v-if="ifAddRow">
+                    <input type='text' value='New Row'><br>
+                </div>
+
+
+                <div slot="body" v-if="ifAddColumn">
+                    <input type='text' value='New Column'><br>
+                </div>
+
+
+                <div slot="footer" v-if="!ifLoggedIn">
+                    <div style="margin-top: 5%;" v-on:click="$emit('close')">
+                        <button id="login" v-on:click="checkCredentials">Login</button>
+    
+                        <button id="login" class="modal-default-button" v-on:click="createNewAccount">
+                            New Account
+                        </button>
+                    </div>
+                </div>
+                <div slot="footer" v-if="ifLoggedIn">
+                    <button id="login" class="modal-default-button" v-on:click="sendData">
+                        Add
+                        </button>
+                    <button id="login" class="modal-default-button" v-on:click="cancelModal">
+                        Cancel
+                        </button>
+                    
+                </div>
+                <div style="text-align: center;" v-if="!ifLoggedIn" slot="Feedback">
+                    <p >If New User, Enter Username and Password</p>
+                    <p >Then Click New Account</p>
+                </div>
+
+                 <div slot="Feedback" v-if="!ifLoggedIn">
+                    <p id="error" v-if="errorloading">Error Loading In</p>
+                    <p id="error" v-if="credentialsFalse">Error No User with those Credentials</p>
+                    <p id="error" v-if="usernameUsed">Username Already in Use</p>
+                    <p id="error" v-if="loginerror">Password Incorrect</p>
+                    <p id="error" v-if="needInfo">Please Enter Login Information</p>
+                 </div>
+            </modal>
+
+            
+            <footer>Background Image: {{backgroundNames[backgroundimg]}}
+            </footer>
+        </div>
+
+
+    <!-- template for the modal component -->
+    <script type="text/x-template" id="modal-template">
+        <transition name="modal">
+        <div class="modal-mask">
+            <div class="modal-wrapper">
+            <div class="modal-container">
+    
+                <div class="modal-header">
+                <slot name="header">
+                    default header
+                </slot>
+                </div>
+    
+                <div class="modal-body">
+                <slot name="body">
+                    New Dataset:<input type="text" value="123">
+                </slot>
+                </div>
+    
+                <div class="modal-footer">
+                    <slot name="footer">
+                        New Dataset:<input type="text" value="123">
+                    </slot>
+                </div>
+
+                <div class="modal-footer">
+                    <slot name="Feedback">
+                    </slot>
+                </div>
+            </div>
+            </div>
+        </div>
+        </transition>
+    </script>
+    <script src="src/view.js"></script>
+    <script src="src/model.js"></script>
+    <script src="src/controller.js"></script>
+</body>
+</html>

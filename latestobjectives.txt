@@ -1,0 +1,16 @@
+objectives:
+
+get noteset working
+// understand datamodel sending up
+// get that to change when:
+// adding a new noteset for User
+// next noteset with User
+// last noteset with User
+// next day of notesets with User
+// last day of notesets with User
+// present day noteset
+// dropdowns work for specfic thing
+
+get username and password working
+// ask for username, or login in
+// with username and password

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NASA Capture</title>
+    
+    <!-- Load required Bootstrap and BootstrapVue CSS -->
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+
+<!-- Load polyfills to support older browsers -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+
+<!-- Load Vue followed by BootstrapVue -->
+<script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
+<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+    
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>
+    <!-- https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- include VueJS first -->
+<script src="https://unpkg.com/vue@latest"></script>
+
+<!-- use the latest vue-select release -->
+<script src="https://unpkg.com/vue-select@latest"></script>
+<link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+
+<!-- or point to a specific vue-select release -->
+<script src="https://unpkg.com/vue-select@3.0.0"></script>
+<link rel="stylesheet" href="https://unpkg.com/vue-select@3.0.0/dist/vue-select.css">
+
+
+<link type="text/css" rel="stylesheet" href="style/styleTest.css"/>
+</head>
+<body id="documentationbody">
+    <section id="title" style="margin-left: 2%; margin-bottom: 3%; margin-top: 3%;">
+        <h1><img id="nasalogo" style="height: 42px; width: 50px;" src="style/media/nasa.png">   NASA Capture  </h1>
+        <h2 style="margin-left: 3%;">By Caleb Vaccaro</h2>
+    </section>
+    <div id="docP">
+        <p>
+            <h2>How To:</h2>
+
+            <ol>
+                <li>Use the "<i><b>Incoming Data</b></i>" Section to observe different images from different NASA APIs (libraries).</li>
+                <li>The "<i><b>Notes</b></i>" Section is the area where you jot down notes about the information you can make out from the images.</li>
+                <li> If you want to add a new NoteSet (Title, Notes), click "<i><b>NoteSet</b></i>" and Press "<i><b>Add</b></i>" when you are done with initial data. </li>
+                <li>When you are completed using NASA Capture be sure to save your data with the "<i><b>Save Data</b></i>" button.</li>
+                <li>The rest is up to you, what do <b>YOU</b> see in the observation information?</li>
+            </ol>
+            
+            
+           
+            
+            
+        </p>
+    </div>
+
+    <div  id="docP">
+        <p>
+            <h2>Reasons for Development:</h2>
+            Started off as a project for my Rich Media Web App Dev I that was supposed to capture two APIs,
+with firebase connections. This was the main driving force for completing the app for a while, but then I realized
+how impactful this type of project can be for many. Anyone who is intersted in observing the data that is captured
+by astromonomers today, can help them understand space and see how vast space really is. There is a ton of data that is captured from
+camera's, and instruments from NASA and other space departments. Who's to say they didn't looked over something important in the data.
+No reason why the public can't help pitch in.
+
+        </p>
+    </div>
+
+    <div  id="docP">
+        <p>
+            <h2>Future Ideas/Development</h2>
+            When I was first designing the app, I wanted Notes and Datasets which would be used to capture data. I took
+out the datasets which were data tables of any type the user wanted to write down. My professor and others, were
+a bit confused on the application itself and what to do inside the application. So, I reworked on re-directing attention to the API content and soley reflect
+on that observation data. Looking forward to the future, there is contionous use for NASA Capture and can evolve with new technology such as the 
+launch of the James Webb telescope into space. I am looking forward to a great API to query from. 
+        </p>
+    </div>
+
+    <div style="display: flex;">
+        <div id="docUL">
+            <h2>
+                APIs Used
+            </h2>
+            <ul>
+                <li><a id="link" href="https://api.nasa.gov/" target="_blank"><i>Astronomy Picture of the Day</i></a></li>
+                <li><a id="link" href="https://api.nasa.gov/" target="_blank"><i>DSCOVR's Earth Polychromatic Imaging Camera</i></a></li>
+                <li><a id="link" href="http://hubblesite.org/api/documentation" target="_blank"><i>Hubble Space Telescope</i></a></li>
+                <li><a id="link" href="https://vuejs.org/" target="_blank"><i>Vue</i></a></li>
+                <li><a id="link" href="https://vue-select.org/" target="_blank"><i>Vue-Select</i></a></li>
+                <li><a id="link" href="https://firebase.google.com/" target="_blank"><i>Firebase</i></a></li>
+            </ul>
+    
+            
+        </div>
+    
+        <div id="docButt">
+            <button id="documentation1" onclick="window.location.href='index.html';">
+                <p style="text-align: center;" ><a href="index.html">Back to Application</a> </p>
+            </button>
+        </div>
+    </div>
+    
+
+    <script src="src/view.js"></script>
+    <script src="src/model.js"></script>
+    <script src="src/controller.js"></script>
+</body>
+</html>

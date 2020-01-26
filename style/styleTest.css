@@ -1,0 +1,392 @@
+body {
+    background-color: #161616;
+    text-shadow: -1px 1px 0 #ffffff;
+
+   }
+
+#documentationbody{
+  background: url('style/media/iss.jpg');
+}
+
+#datasetTable{
+    background-color: white;
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: gray;
+   font-size: 110%;
+   font-style: italic;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    padding: 15px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+#column{
+  display: flex;
+  flex-direction: column;
+  padding-left: 2%;
+  flex-wrap: nowrap;
+  
+}
+
+.date .vs__dropdown-menu{
+  width: 150px;
+}
+
+.vs__dropdown-menu{
+  width: 400px;
+}
+
+.date .vs__dropdown-toggle{
+  width: 150px;
+  background: #ffffffad;
+
+}
+
+#docP{
+  width: 50%;
+  margin: 3%;
+  background-color:  rgba(41, 41, 41, 0.76);
+  color: white;
+  padding: 1%;
+}
+
+#docP h2{
+  font-size: 200%;
+}
+
+#docUL h2{
+  font-size: 200%;
+}
+
+#docButt{
+  width: 25%;
+  margin: 1%;
+  color: white;
+  text-align: center;
+}
+
+#docUL{
+  width: 25%;
+  margin-left: 3%;
+  margin-bottom: 3%;
+  background-color:  rgba(41, 41, 41, 0.76);
+  color: white;
+  padding: 1%;
+}
+
+.vs__dropdown-toggle{
+  width: 400px;
+  background: #ffffffad;
+
+}
+
+#textarea{
+  transition: border 0.5s;
+	-webkit-transition: border 0.5s;
+	-moz-transition: border 0.5s;
+	-o-transition: border 0.5s;
+	border: solid 3px #ffffff;	
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+  box-sizing:border-box;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+#manipulators{
+  border: 1px solid rgba(116, 113, 113, 0.164);
+  -webkit-background-clip: padding-box; /* for Safari */
+  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+  padding: 3%;
+}
+
+
+
+#app{
+  display: flex;
+}
+footer {
+  position:fixed;
+  bottom:0px;
+  width: 100%;
+  text-align: right;
+}
+
+#DataSets,#NoteSets{
+  margin-top: 40%;
+  top: 30%;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+} 
+
+#title{
+  height: 2 0%;
+}
+
+
+#apod,#epic,#hubble{
+  height: 40%;
+  width: 50%;
+  padding: 10px;
+  color: white;
+}
+
+#manipulator{
+  display: flex;
+}
+
+#accR{
+  font-size: 90%;
+  text-decoration: underline;
+  color:rgb(153, 153, 153);
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+button{
+  display:inline-block;
+padding:0.35em 1.2em;
+border:0.1em solid #FFFFFF;
+margin:0 0.3em 0.3em 0;
+border-radius:0.12em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:#FFFFFF;
+background-color: rgba(134, 134, 134, 0.247);
+text-align:center;
+transition: all 0.2s;
+font-size: 75%;
+}
+
+button:hover{
+  color:#000000;
+  background-color:#FFFFFF;
+  
+  }
+
+
+@media all and (max-width:30em){
+   button{
+    display:block;
+    margin:0.4em auto
+   }
+} 
+
+#login{
+  display:inline-block;
+padding:0.35em 1.2em;
+border:0.1em solid #FFFFFF;
+margin:0 0.3em 0.3em 0;
+border-radius:0.12em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:#FFFFFF;
+background-color: rgba(255, 0, 0, 0.247);
+text-align:center;
+transition: all 0.2s;
+font-size: 75%;
+}
+
+#login:hover{
+  color:#000000;
+  background-color:rgb(255, 0, 0);
+  
+  }
+
+#bk{
+  float: right;
+}
+
+#documentation{
+  top:85%;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  padding: .5%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 75%;
+  cursor: pointer;
+  text-align: center;
+  width: 50%;
+  margin-left: 10%;
+}
+
+#documentation1{
+  margin-top: 15%;
+  padding: .5%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 75%;
+  cursor: pointer;
+  text-align: center;
+  width: 50%;
+  margin-left: 5%;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: black;
+}
+
+#link{
+  color: #0084ff;
+}
+
+#link:hover{
+  color: white;
+}
+
+p{
+  margin-top: 4%;
+}
+
+
+#error{
+  color: red;
+}
+
+
+#data_controls button{
+  /* background-color: rgb(13, 126, 179);
+  border: 1px solid black;
+  color: white;
+  padding: .5%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block; */
+  font-size: 75%;
+  cursor: pointer;
+}
+
+#misc_controls button{
+  /* background-color: rgb(68, 68, 68); 
+  border: 1px solid black;
+  color: white;
+  padding: 3%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block; */
+  font-size: 85%;
+  cursor: pointer;
+}
+
+#epicimg{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  animation: float 15s ease-in-out infinite;
+}
+
+/*
+ * MODAL CSS 
+ */
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 350px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #0084ff;
+}
+
+.modal-body {
+  margin: 10px 0;
+}
+
+.modal-default-button {
+  float: right;
+}
+
+.modal-footer{
+  display: flex;
+  justify-content: center;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+  }
+}
