@@ -1,6 +1,6 @@
 # NASA Capture
 ### Caleb Vaccaro
-### Rich Media Web Development 1
+### Originally Created for: Rich Media Web Development 1
 
 # Use of Application
 NASA capture is the quid essential app to understanding the cosmos at its finest.
